@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <title>Cronometro</title>
+
+    <!-- Chronos references -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Cronometro</h1>
+
+    <div id="timer">
+        <div class="container">
+            <select name="hour" id="hour">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div class="divider">:</div>
+            <select name="minute" id="minute">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div class="divider">:</div>
+            <select name="second" id="second">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <button id="btn-comenzar">Comenzar</button>
+    </div>
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="scripts/index.js"></script>
+</body>
+</html>
