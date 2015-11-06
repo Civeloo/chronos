@@ -41,6 +41,9 @@
             }
             t[j].selected = true;
         }
+        $("#hour").selectmenu("refresh");
+        $("#minute").selectmenu("refresh");
+        $("#second").selectmenu("refresh");
     }
 
     function temporizador() {
