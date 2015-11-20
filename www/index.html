@@ -9,63 +9,30 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
     <title>C h r o n o s</title>
     <!-- Chronos references -->
-    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <div data-role="page" id="page" data-theme="b">
-       <div data-role="header">
-           <h1>C h r o n o s</h1>
-       </div>
-        <div data-role="content">
-            <div id="timer">
-                <div data-role="fieldcontain">
-                    <div data-role="navbar">
-                        <ul>
-                            <li>
-                                <select name="hour" id="hour" data-native-menu="false">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select name="minute" id="minute" data-native-menu="false">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select name="second" id="second" data-native-menu="false">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>                    
-       <div data-role="footer">
-           <div data-role="navbar">
-               <ul>
-                   <li>
-                       <button id="btn-comenzar">Comenzar</button>
-                   </li>
-               </ul>               
-           </div>           
-       </div>
-    </div> 
+    <div id="timer">
+        <div class="container">
+            <select name="hour" id="hour">
+                <option value="0">00</option>                
+            </select>
+            <select name="minute" id="minute">
+                <option value="0">00</option>
+            </select>
+            <select name="second" id="second">
+                <option value="0">00</option> 
+            </select>
+            <select name="centisecond" id="centisecond">
+                <option value="0">00</option>
+            </select>
+        </div>
+        <button id="btn-start">start</button>
+    </div>
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
     <script src="scripts/jquery-2.1.4.min.js"></script>    
-    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
     <script src="scripts/index.js"></script>    
 </body>
 </html>

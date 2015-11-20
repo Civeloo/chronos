@@ -1,2 +1,47 @@
-﻿body{
+﻿body {
+    font-family:Open Sans;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+ }
+
+#timer{
+    margin: auto;   
+ }
+
+#timer .container{
+    display:table;
+    font-weight:bold;
+    width:100%;
+    text-align:center;
+    text-shadow:1px 1px 4px #999;
+}
+
+#timer .container div{
+    display:table-cell;
+    padding:1em;
+    width:2rem;
+}
+
+select {
+    font-size:5rem;
+    border:0;
+}
+
+#btn-start{
+    box-sizing:border-box;
+    background:#eee;
+    margin:0 auto;
+    width:100%;
+    font-size:4rem;
+    color:#777;
+
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+}
+
+#btn-start:hover{
+    background:#fff;
 }
