@@ -45,3 +45,8 @@ select {
 #btn-start:hover{
     background:#fff;
 }
+
+#lap{
+   text-align:center;
+   overflow:auto;
+}

@@ -87,7 +87,8 @@
         function stop() {
             clearInterval(time_running);
             time_running = undefined;
-            resetT();
+            createList();
+            resetT();            
         }
         function isZero() {
             return ((time.hour == 0) & (time.minute == 0) & (time.second == 0) & (time.centisecond == 0)) ? true : false;
@@ -105,6 +106,16 @@
             if (isZero())  chr = true;
             $("#btn-start").text('stop');
             time_running = setInterval(run, 10);
+        }
+        function createList() {
+            var ol = document.getElementById("lap");
+            var li = document.createElement("li");              
+            li.innerHTML = 
+            $("#hour")[0].value +
+            ":" + $("#minute")[0].value +
+            ":" + $("#second")[0].value +
+            ":" + $("#centisecond")[0].value;
+            ol.appendChild(li);
         }
       
         $("#btn-start").click( 
