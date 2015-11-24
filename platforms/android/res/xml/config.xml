@@ -5,6 +5,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icons/android/icon-36-ldpi.png" />
     <icon density="mdpi" src="res/icons/android/icon-48-mdpi.png" />
@@ -32,4 +35,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <vs:plugin name="cordova-plugin-dialogs" version="1.1.1" />
 </widget>

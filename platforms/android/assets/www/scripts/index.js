@@ -31,15 +31,28 @@
             second: 0,
             centisecond: 0
         }
+        var cd = {
+            hour: 0,
+            minute: 0,
+            second: 0,
+            centisecond: 0
+        }
         var chr = false;
         var time_running = undefined;
         function resetT() {
             $("#btn-start").text('start');
+            if (!chr) {
+                time.hour = cd.hour;
+                time.minute = cd.minute;
+                time.second = cd.second;
+                time.centisecond = cd.centisecond;
+            } else {
+                time.hour = 0;
+                time.minute = 0;
+                time.second = 0;
+                time.centisecond = 0;
+            }
             chr = false;
-            time.hour = 0;
-            time.minute = 0;
-            time.second = 0;
-            time.centisecond = 0;
             update();
         }
         function update() {
@@ -87,7 +100,7 @@
         function stop() {
             clearInterval(time_running);
             time_running = undefined;
-            createList();
+            (chr) ? createList() : navigator.notification.beep(3) ;
             resetT();            
         }
         function isZero() {
@@ -103,7 +116,12 @@
             time.minute = $("#minute")[0].value;
             time.second = $("#second")[0].value;
             time.centisecond = $("#centisecond")[0].value;
-            if (isZero())  chr = true;
+            if (isZero()) { chr = true } else {
+                cd.hour = time.hour;
+                cd.minute = time.minute;
+                cd.second = time.second;
+                cd.centisecond = time.centisecond;                
+            }
             $("#btn-start").text('stop');
             time_running = setInterval(run, 10);
         }
