@@ -25,34 +25,18 @@
     };
 
     function count() {
-        var time = {
-            hour: 0,
-            minute: 0,
-            second: 0,
-            centisecond: 0
+        function timeO(hour, minute, second, centisecond) {
+            this.hour = hour;
+            this.minute = minute;
+            this.second = second;
+            this.centisecond = centisecond;
         }
-        var cd = {
-            hour: 0,
-            minute: 0,
-            second: 0,
-            centisecond: 0
-        }
-        var chr = false;
+        var time = new timeO(0, 0, 0, 0);
+        var cd = undefined;
         var time_running = undefined;
         function resetT() {
             $("#btn-start").text('start');
-            if (!chr) {
-                time.hour = cd.hour;
-                time.minute = cd.minute;
-                time.second = cd.second;
-                time.centisecond = cd.centisecond;
-            } else {
-                time.hour = 0;
-                time.minute = 0;
-                time.second = 0;
-                time.centisecond = 0;
-            }
-            chr = false;
+            time = (isCountdown()) ? new timeO(cd.hour, cd.minute, cd.second, cd.centisecond) : new timeO(0, 0, 0, 0);
             update();
         }
         function update() {
@@ -100,28 +84,23 @@
         function stop() {
             clearInterval(time_running);
             time_running = undefined;
-            (chr) ? createList() : navigator.notification.beep(3) ;
+            (isCountdown()) ? navigator.notification.beep(3) : createList();
             resetT();            
         }
         function isZero() {
-            return ((time.hour == 0) & (time.minute == 0) & (time.second == 0) & (time.centisecond == 0)) ? true : false;
+            return ((time.hour == 0) & (time.minute == 0) & (time.second == 0) & (time.centisecond == 0));
+        }
+        function isCountdown(){
+            return (cd != undefined);
         }
         function run() {
-            (chr) ? chronometer() : countdown();
+            (isCountdown()) ? countdown() : chronometer();
             update();
             if (isZero()) stop();
         }        
-        function play() {           
-            time.hour = $("#hour")[0].value;
-            time.minute = $("#minute")[0].value;
-            time.second = $("#second")[0].value;
-            time.centisecond = $("#centisecond")[0].value;
-            if (isZero()) { chr = true } else {
-                cd.hour = time.hour;
-                cd.minute = time.minute;
-                cd.second = time.second;
-                cd.centisecond = time.centisecond;                
-            }
+        function play() {
+            time = new timeO($("#hour")[0].value, $("#minute")[0].value, $("#second")[0].value, $("#centisecond")[0].value);
+            (isZero()) ? cd = undefined : cd = new timeO(time.hour, time.minute, time.second, time.centisecond);
             $("#btn-start").text('stop');
             time_running = setInterval(run, 10);
         }
