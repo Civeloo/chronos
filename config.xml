@@ -111,4 +111,5 @@
       <vs:name>Chronos</vs:name>
     </vs:platformSpecificWidget>
   </vs:platformSpecificValues>
+  <vs:plugin name="cordova-plugin-media" version="1.0.1" />
 </widget>

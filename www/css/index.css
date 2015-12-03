@@ -2,11 +2,12 @@
 	margin:0px;
 	height:100%;
 	width:100%;
+	overflow: hidden;
 }
 header{
-	width:100%;	
+	width:100%;
 	float:left;
-	height:20%;
+	height:30%;
 	text-align:center;
 	position:relative;
 }
@@ -15,10 +16,13 @@ header{
 	top: 50%; 
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width:100%;
+	
 }
 select{
 	border: 0px;		
-	font-size:3rem;
+	font-size:4rem;
+	font-weight: bold;
 	-webkit-appearance: none;
     appearance: none;
 	-moz-appearance: none;text-indent: 0.01px;text-overflow: '';
@@ -29,8 +33,12 @@ select::-ms-expand {
 main{
 	width:100%;
 	float:left;
-	height:60%;	
-	text-align:center;	
+	height:40%;	
+	text-align:center;
+	overflow-y: scroll;
+}
+ol{
+	list-style:none;
 }
 footer{
 	width:100%;
@@ -40,7 +48,7 @@ footer{
 	position:relative;
 }
 button{		
-	font-size:3rem;
+	font-size:4rem;
 	position:absolute;
 	top: 50%; 
 	left: 50%;
@@ -49,7 +57,9 @@ button{
 	-moz-border-radius: 200px 200px 200px 200px;
 	-webkit-border-radius: 200px 200px 200px 200px;
 	border: 0px solid #000000;
+	background:white;
 }
 button:hover{
-	background:white;
+	background:gray;
+	color:white;
 }
