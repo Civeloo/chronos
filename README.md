@@ -1,2 +1,2 @@
 # chronos
-Cronometro con Cordova y JQuery
+Cronometro con Cordova (Html, Javascript y CSS)
