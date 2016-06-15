@@ -50,7 +50,7 @@
         var cd = undefined;
         var time_running = undefined;
         var c = 1.6;//calibrate
-        var myMedia = new Media("sounds/bellbox.mp3")
+        var myMedia = new Media("sounds/bellbox.mp3");
         document.getElementById("btn-start").onclick = function () {
             ((this).innerText == 'start') ? play() : stop();
         };
