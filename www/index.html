@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
     <link href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
+    <header>       
         <div id="timer">
             <div class="container">
                 <select name="hour" id="hour">
@@ -31,8 +31,11 @@
             </div>
         </div>
     </header>
-    <main><ol id="lap"></ol></main>
-    <footer><button id="btn-start">start</button></footer>
+    <main><ol id="lap"></ol></main>   
+    <footer>
+        <button id="btn-start">start</button> 
+        <input type="image" id="btn-setup" src="img/setup.png" />
+    </footer>
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>

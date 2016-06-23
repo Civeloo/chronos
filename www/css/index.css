@@ -1,4 +1,4 @@
-﻿html,body{
+html,body{
 	margin:0px;
 	height:100%;
 	width:100%;
@@ -47,7 +47,7 @@ footer{
 	text-align:center;	
 	position:relative;
 }
-button{		
+#btn-start{		
 	font-size:4rem;
 	position:absolute;
 	top: 50%; 
@@ -59,7 +59,13 @@ button{
 	border: 0px solid #000000;
 	background:white;
 }
-button:hover{
+#btn-setup{
+    width:2rem;
+    position:absolute;
+    top: 100%;
+    left: 85%;
+}
+#btn-start:hover{
 	background:gray;
 	color:white;
 }

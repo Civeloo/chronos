@@ -1,4 +1,4 @@
-﻿// For an introduction to the Blank template, see the following documentation:
+// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
@@ -9,12 +9,14 @@
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
+        console.log("console.log works well");
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
-        document.addEventListener('resume', onResume.bind(this), false);
+        document.addEventListener('resume', onResume.bind(this), false);      
+//         TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.         
+        calibrate();   
         fillSelect();
         count();
-        // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.                
     };
 
     function onPause() {
@@ -44,12 +46,36 @@
             t[j].selected = true;
         }
     };
+    
+    function calibrate() {
+        
+        function setCalibrate(v) {
+            window.localStorage.setItem("key", v);
+        }
+        function promptCalibrate() {
+            return prompt('Calibrate:','') 
+        }
+        
+        // 1.6 - calibrate to l535-wp10        
+        // 1.1 - calibrate to i6sp128-ios9.3 
+        setCalibrate(1.1); 
+        document.getElementById("btn-setup").onclick = function () {
+                setCalibrate( promptCalibrate() );
+        };        
+    }
 
     function count() {
+        //
+        function getCalibrate() {
+            return parseFloat(window.localStorage.getItem("key"));
+        }      
+        //
         var time = new timeO(0, 0, 0, 0);
         var cd = undefined;
-        var time_running = undefined;
-        var c = 1.6;//calibrate
+        var time_running = undefined; 
+                
+        var c = getCalibrate();
+        console.log("calibrate to: "+c);
         var myMedia = new Media("sounds/bellbox.mp3");
         document.getElementById("btn-start").onclick = function () {
             ((this).innerText == 'start') ? play() : stop();
@@ -61,6 +87,8 @@
             this.centisecond = centisecond;
         }
         function play() {
+            c = getCalibrate();
+            console.log("calibrated: "+c);
             time = new timeO(
             document.getElementById("hour").value,
             document.getElementById("minute").value,
